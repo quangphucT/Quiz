@@ -50,10 +50,10 @@ const CrosswordGame = ({
         const isSelected = selectedRow === rowIndex;
 
         return (
-          <div key={question.id} className="flex items-center gap-3">
+          <div key={question.id} className="flex items-center gap-2">
             <button
               onClick={() => onSelectRow(rowIndex)}
-              className={`w-12 h-12 rounded-xl cursor-pointer font-bold text-lg transition-all duration-300 shadow-md ${
+              className={`w-10 h-10 rounded-lg cursor-pointer font-bold text-sm transition-all duration-300 shadow-md ${
                 isSelected
                   ? "bg-gradient-to-br from-amber-400 to-orange-500 text-white scale-110 shadow-lg shadow-amber-500/30 ring-4 ring-amber-200"
                   : isRevealed
@@ -63,7 +63,7 @@ const CrosswordGame = ({
             >
               {rowIndex + 1}
             </button>
-            <div className="flex gap-1">
+            <div className="flex gap-0.5">
               {Array.from({ length: maxLength + 4 }).map((_, colIndex) => {
                 const letterIndex = colIndex - startCol;
                 const hasLetter = letterIndex >= 0 && letterIndex < answer.length;
@@ -71,13 +71,13 @@ const CrosswordGame = ({
                 const letter = hasLetter ? answer[letterIndex] : "";
 
                 if (!hasLetter) {
-                  return <div key={colIndex} className="w-11 h-11" />;
+                  return <div key={colIndex} className="w-9 h-9" />;
                 }
 
                 return (
                   <div
                     key={colIndex}
-                    className={`w-11 h-11 rounded-lg flex items-center justify-center font-bold text-lg transition-all duration-300 shadow-sm ${
+                    className={`w-9 h-9 rounded flex items-center justify-center font-bold text-sm transition-all duration-300 ${
                       isKeywordCell
                         ? "bg-gradient-to-br from-amber-100 to-yellow-200 border-2 border-amber-400 shadow-amber-200"
                         : "bg-white border-2 border-slate-200"
@@ -100,17 +100,17 @@ const CrosswordGame = ({
 
       {/* Keyword display */}
       {data.keyword && (
-        <div className="mt-8 p-6 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-2xl shadow-xl">
-          <h3 className="text-white font-bold text-xl mb-4 text-center flex items-center justify-center gap-2">
-            <span className="text-2xl">🔑</span> TỪ KHÓA
+        <div className="mt-6 p-4 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-2xl shadow-xl">
+          <h3 className="text-white font-bold text-lg mb-3 text-center flex items-center justify-center gap-2">
+            <span className="text-xl">🔑</span> TỪ KHÓA
           </h3>
-          <div className="flex gap-2 justify-center">
+          <div className="flex gap-1 justify-center flex-wrap">
             {data.keyword.split("").map((letter, index) => {
               const isRevealed = revealedAnswers.includes(index) || showAllAnswers;
               return (
                 <div
                   key={index}
-                  className={`w-14 h-14 rounded-xl bg-white flex items-center justify-center font-bold text-2xl shadow-lg transition-all duration-500 ${
+                  className={`w-10 h-10 rounded-lg bg-white flex items-center justify-center font-bold text-lg shadow-lg transition-all duration-500 ${
                     isRevealed 
                       ? "text-amber-600 scale-105" 
                       : "text-transparent"

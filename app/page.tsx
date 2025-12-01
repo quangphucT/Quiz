@@ -84,7 +84,7 @@ const HomePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-500 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-500 relative">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
@@ -130,12 +130,12 @@ const HomePage = () => {
       </div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-4 pb-12">
+      <div className="relative w-full px-4 pb-12">
         {activeTab === "play" ? (
-          <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+          <div className="flex flex-col lg:flex-row gap-6 max-w-[1800px] mx-auto">
             {/* Crossword Grid */}
-            <div className="xl:col-span-2">
-              <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-white/20">
+            <div className="flex-1 min-w-0">
+              <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-6 border border-white/20">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
                   <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent flex items-center gap-2">
                     🧩 Ô Chữ
@@ -173,7 +173,7 @@ const HomePage = () => {
             </div>
 
             {/* Right Sidebar */}
-            <div className="xl:col-span-1 space-y-6">
+            <div className="lg:w-[380px] shrink-0 space-y-6">
               {/* Question Display */}
               <QuestionDisplay
                 question={currentQuestion}
