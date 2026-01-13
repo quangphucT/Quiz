@@ -50,7 +50,7 @@ const CrosswordGame = ({
         const isSelected = selectedRow === rowIndex;
 
         return (
-          <div key={question.id} className="flex items-center gap-3 animate-fade-in-left" style={{animationDelay: `${rowIndex * 0.1}s`}}>
+          <div key={question.id} className="flex items-center gap-3 mt-2 animate-fade-in-left" style={{animationDelay: `${rowIndex * 0.1}s`}}>
             <button
               onClick={() => onSelectRow(rowIndex)}
               className={`min-w-[40px] h-[50px] cursor-pointer px-2 rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-110 hover:rotate-3 ${

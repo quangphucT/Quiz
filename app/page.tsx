@@ -139,7 +139,7 @@ const HomePage = () => {
           <div className="flex flex-col lg:flex-row gap-6">
             {/* Crossword Grid */}
             <div className="flex-1 min-w-0">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between  mb-6 gap-4">
                 <h2 className="text-2xl md:text-3xl font-black bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent animate-gradient-x flex items-center gap-2">
                    Bảng Ô Chữ
                 </h2>
