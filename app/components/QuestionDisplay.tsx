@@ -87,9 +87,9 @@ const QuestionDisplay = ({
   }
 
   return (
-    <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
+    <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden animate-fade-in-up">
       {/* Header */}
-      <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-4">
+      <div className="bg-gradient-to-r from-indigo-400 to-purple-400 p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="w-12 h-12 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center font-bold text-xl text-white shadow-lg">
@@ -102,9 +102,9 @@ const QuestionDisplay = ({
           </div>
           <button
             onClick={isSpeaking ? stopSpeaking : speakQuestion}
-            className={`p-3 cursor-pointer rounded-xl font-bold transition-all duration-300 ${
+            className={`p-3 cursor-pointer rounded-xl font-bold transition-all duration-300 transform hover:scale-110 ${
               isSpeaking
-                ? "bg-red-500 text-white shadow-lg shadow-red-500/30"
+                ? "bg-pink-400 text-white shadow-lg shadow-pink-300/50 animate-pulse"
                 : "bg-white/20 text-white hover:bg-white/30"
             }`}
           >
@@ -115,15 +115,15 @@ const QuestionDisplay = ({
 
       {/* Question content */}
       <div className="p-6">
-        <div className="p-5 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl mb-4">
+        <div className="p-5 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl mb-4 border border-indigo-100">
           <p className="text-xl text-slate-800 leading-relaxed font-medium">
             {question.question}
           </p>
         </div>
 
         {question.hint && (
-          <div className="p-4 bg-amber-50 rounded-xl mb-4 border border-amber-200">
-            <p className="text-amber-800 flex items-start gap-2">
+          <div className="p-4 bg-blue-50 rounded-xl mb-4 border border-blue-200">
+            <p className="text-blue-700 flex items-start gap-2">
               <span className="text-xl">💡</span>
               <span><strong>Gợi ý:</strong> {question.hint}</span>
             </p>
@@ -133,13 +133,13 @@ const QuestionDisplay = ({
         {!isRevealed ? (
           <button
             onClick={() => onRevealAnswer(rowIndex)}
-            className="w-full py-4 cursor-pointer bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-lg rounded-2xl hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/30 hover:-translate-y-0.5"
+            className="w-full py-4 cursor-pointer bg-gradient-to-r from-indigo-400 to-purple-400 text-white font-bold text-lg rounded-2xl hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 shadow-lg shadow-indigo-300/30 hover:shadow-xl hover:shadow-indigo-300/40 hover:-translate-y-1 transform"
           >
-             Hiển thị đáp án
+            ✨ Hiển thị đáp án
           </button>
         ) : (
-          <div className="p-5 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl">
-            <p className="text-white text-center text-3xl font-bold tracking-widest">
+          <div className="p-5 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-2xl shadow-lg animate-bounce-in">
+            <p className="text-white text-center text-3xl font-bold tracking-widest drop-shadow-lg">
               {question.answer}
             </p>
           </div>

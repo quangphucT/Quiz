@@ -129,12 +129,12 @@ const QuestionManager = ({ data, onUpdateData }: QuestionManagerProps) => {
   const answerLetters = newAnswer.toUpperCase().replace(/\s/g, "").split("");
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w mx-auto">
       {/* Current Keyword Display */}
       {data.keyword && (
         <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-6 mb-6 border border-white/20">
           <h3 className="font-bold text-xl text-slate-800 mb-4 flex items-center gap-2">
-            <span className="text-2xl">🔑</span> Từ khóa hiện tại
+            <span className="text-2xl"></span> Từ khóa hiện tại
           </h3>
           <div className="flex gap-2 justify-center flex-wrap">
             {data.keyword.split("").map((letter, index) => (
@@ -152,7 +152,7 @@ const QuestionManager = ({ data, onUpdateData }: QuestionManagerProps) => {
       {/* Add/Edit Form */}
       <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-6 mb-6 border border-white/20">
         <h3 className="font-bold text-xl text-slate-800 mb-6 flex items-center gap-2">
-          <span className="text-2xl">{editingId ? "✏️" : "➕"}</span>
+          <span className="text-2xl">{editingId ? "" : ""}</span>
           {editingId ? "Sửa câu hỏi" : "Thêm câu hỏi mới"}
         </h3>
 
@@ -186,7 +186,7 @@ const QuestionManager = ({ data, onUpdateData }: QuestionManagerProps) => {
           {answerLetters.length > 0 && (
             <div className="p-4 bg-linear-to-br from-amber-50 to-yellow-50 rounded-2xl border border-amber-200">
               <p className="text-amber-800 font-semibold mb-3 flex items-center gap-2">
-                <span>👆</span> Chọn chữ cái đặc biệt (tạo thành từ khóa):
+                <span></span> Chọn chữ cái đặc biệt (tạo thành từ khóa):
               </p>
               <div className="flex gap-2 flex-wrap justify-center">
                 {answerLetters.map((letter, index) => (
@@ -217,7 +217,7 @@ const QuestionManager = ({ data, onUpdateData }: QuestionManagerProps) => {
                   onClick={handleSaveEdit}
                   className="flex-1 py-3 bg-linear-to-r from-emerald-500 to-teal-500 cursor-pointer text-white font-bold rounded-xl hover:from-emerald-600 hover:to-teal-600 transition-all shadow-lg shadow-emerald-500/25"
                 >
-                  💾 Lưu thay đổi
+                   Lưu thay đổi
                 </button>
                 <button
                   onClick={() => {
@@ -229,7 +229,7 @@ const QuestionManager = ({ data, onUpdateData }: QuestionManagerProps) => {
                   }}
                   className="px-6 py-3 bg-slate-100 cursor-pointer text-slate-700 font-bold rounded-xl hover:bg-slate-200 transition-all"
                 >
-                  ❌ Hủy
+                  Hủy
                 </button>
               </>
             ) : (
@@ -238,7 +238,7 @@ const QuestionManager = ({ data, onUpdateData }: QuestionManagerProps) => {
                 disabled={!newQuestion.trim() || !newAnswer.trim()}
                 className="flex-1 py-3 bg-linear-to-r from-emerald-500 to-teal-500 cursor-pointer text-white font-bold rounded-xl hover:from-emerald-600 hover:to-teal-600 transition-all shadow-lg shadow-emerald-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                ➕ Thêm câu hỏi
+               Thêm câu hỏi
               </button>
             )}
           </div>
@@ -248,7 +248,7 @@ const QuestionManager = ({ data, onUpdateData }: QuestionManagerProps) => {
       {/* Question List */}
       <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-6 border border-white/20">
         <h3 className="font-bold text-xl text-slate-800 mb-6 flex items-center gap-2">
-          <span className="text-2xl">📋</span> Danh sách câu hỏi
+          <span className="text-2xl"></span> Danh sách câu hỏi
           <span className="ml-auto bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-semibold">
             {data.questions.length} câu
           </span>
@@ -316,13 +316,13 @@ const QuestionManager = ({ data, onUpdateData }: QuestionManagerProps) => {
                       onClick={() => handleEditQuestion(question)}
                       className="px-3 py-2 bg-amber-100 cursor-pointer text-amber-700 rounded-lg hover:bg-amber-200 transition-all font-medium text-sm"
                     >
-                      ✏️ Sửa
+                       Sửa
                     </button>
                     <button
                       onClick={() => handleDeleteQuestion(question.id)}
                       className="px-3 py-2 bg-rose-100 cursor-pointer text-rose-700 rounded-lg hover:bg-rose-200 transition-all font-medium text-sm"
                     >
-                      🗑️ Xóa
+                       Xóa
                     </button>
                   </div>
                 </div>

@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -74,9 +72,9 @@ const HomePage = () => {
 
   if (!isLoaded) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-500 flex items-center justify-center">
-        <div className="text-white text-2xl flex items-center gap-3">
-          <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-slate-700 text-xl flex items-center gap-3">
+          <div className="w-8 h-8 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
           Đang tải...
         </div>
       </div>
@@ -84,82 +82,84 @@ const HomePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-500 relative">
-      {/* Background decorations */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl"></div>
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Animated gradient background */}
+      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 animate-gradient-xy"></div>
+      
+      {/* Floating decorative elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200/30 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute top-40 right-20 w-48 h-48 bg-indigo-200/30 rounded-full blur-3xl animate-float-delayed"></div>
+        <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-purple-200/30 rounded-full blur-2xl animate-float-slow"></div>
+        <div className="absolute bottom-40 right-1/3 w-36 h-36 bg-pink-200/25 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute top-1/3 left-1/2 w-44 h-44 bg-cyan-200/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        
+        {/* Sparkles */}
+        <div className="absolute top-1/4 left-1/4 text-3xl opacity-40 animate-bounce-slow">✨</div>
+        <div className="absolute top-2/3 right-1/4 text-2xl opacity-40 animate-bounce-delayed">🎉</div>
+        <div className="absolute bottom-1/4 left-2/3 text-3xl opacity-40 animate-spin-slow">🌟</div>
       </div>
-
-      {/* Header */}
-      <div className="relative text-center py-8">
-        <div className="inline-block">
-          <h1 className="text-5xl md:text-6xl font-black text-white drop-shadow-2xl tracking-tight">
-            TRÒ CHƠI <span className="text-yellow-300">Ô CHỮ</span>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-8">
+        {/* Header */}
+        <div className="text-center mb-8 animate-fade-in-down">
+          <h1 className="text-4xl md:text-6xl font-black text-slate-700 mb-2 drop-shadow-lg transform hover:scale-105 transition-transform duration-300">
+            TRÒ CHƠI <span className="text-indigo-600 animate-pulse-glow">Ô CHỮ</span>
           </h1>
-          <div className="mt-2 h-1 w-full bg-gradient-to-r from-transparent via-yellow-300 to-transparent"></div>
+          <p className="text-slate-600 text-lg md:text-xl font-medium mt-3 animate-fade-in">Chinh phục từ khoá - Dễ hay khó? 💪✨</p>
         </div>
-        <p className="text-xl md:text-2xl text-white/90 mt-4 font-medium tracking-wide">
-          ✨ CHINH PHỤC DANH HIỆU: DỄ HAY KHÓ? ✨
-        </p>
-      </div>
 
-      {/* Tabs */}
-      <div className="relative flex justify-center gap-4 mb-8 px-4">
-        <button
-          onClick={() => setActiveTab("play")}
-          className={`px-8 py-4 cursor-pointer rounded-2xl font-bold text-lg transition-all duration-300 shadow-lg ${
-            activeTab === "play"
-              ? "bg-white text-emerald-600 shadow-xl scale-105 ring-4 ring-white/30"
-              : "bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm"
-          }`}
-        >
-          🎮 Chơi Game
-        </button>
-        <button
-          onClick={() => setActiveTab("manage")}
-          className={`px-8 py-4 cursor-pointer rounded-2xl font-bold text-lg transition-all duration-300 shadow-lg ${
-            activeTab === "manage"
-              ? "bg-white text-emerald-600 shadow-xl scale-105 ring-4 ring-white/30"
-              : "bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm"
-          }`}
-        >
-          ⚙️ Quản Lý Câu Hỏi
-        </button>
-      </div>
+        {/* Tabs */}
+        <div className="flex justify-center gap-4 mb-8 animate-fade-in-up">
+          <button
+            onClick={() => setActiveTab("play")}
+            className={`px-6 cursor-pointer py-3 rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 ${
+              activeTab === "play"
+                ? "bg-white text-indigo-600 shadow-xl shadow-indigo-200/50 ring-4 ring-indigo-100/50"
+                : "bg-white/40 text-slate-700 hover:bg-white/60 backdrop-blur-sm border-2 border-white/50"
+            }`}
+          >
+             Chơi Game
+          </button>
+          <button
+            onClick={() => setActiveTab("manage")}
+            className={`px-6 py-3 cursor-pointer rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 ${
+              activeTab === "manage"
+                ? "bg-white text-indigo-600 shadow-xl shadow-indigo-200/50 ring-4 ring-indigo-100/50"
+                : "bg-white/40 text-slate-700 hover:bg-white/60 backdrop-blur-sm border-2 border-white/50"
+            }`}
+          >
+             Quản Lý Câu Hỏi
+          </button>
+        </div>
 
-      {/* Content */}
-      <div className="relative w-full px-4 pb-12">
+        {/* Content */}
+        <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl p-6 md:p-8 animate-fade-in-up border-2 border-white/50 hover:shadow-indigo-200/30 transition-shadow duration-300">
         {activeTab === "play" ? (
-          <div className="flex flex-col lg:flex-row gap-6 max-w-[1800px] mx-auto">
+          <div className="flex flex-col lg:flex-row gap-6">
             {/* Crossword Grid */}
             <div className="flex-1 min-w-0">
-              <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-6 border border-white/20">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
-                  <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent flex items-center gap-2">
-                    🧩 Ô Chữ
-                  </h2>
-                  <div className="flex gap-3">
-                    <button
-                      onClick={handleReset}
-                      className="px-5 py-2.5 cursor-pointer bg-slate-100 text-slate-700 rounded-xl font-semibold hover:bg-slate-200 transition-all duration-200 flex items-center gap-2 shadow-sm"
-                    >
-                      🔄 Chơi lại
-                    </button>
-                    <button
-                      onClick={handleShowAllAnswers}
-                      disabled={showAllAnswers}
-                      className={`px-5 py-2.5 cursor-pointer rounded-xl font-semibold transition-all duration-200 flex items-center gap-2 shadow-sm ${
-                        showAllAnswers
-                          ? "bg-slate-200 text-slate-400 cursor-not-allowed"
-                          : "bg-gradient-to-r from-rose-500 to-pink-500 text-white hover:from-rose-600 hover:to-pink-600 shadow-lg shadow-rose-500/25"
-                      }`}
-                    >
-                      👁️ Hiện tất cả
-                    </button>
-                  </div>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+                <h2 className="text-2xl md:text-3xl font-black bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent animate-gradient-x flex items-center gap-2">
+                   Bảng Ô Chữ
+                </h2>
+                <div className="flex gap-3">
+                  <button
+                    onClick={handleReset}
+                    className="px-4 py-2 cursor-pointer bg-gradient-to-r from-blue-400 to-indigo-400 text-white rounded-xl font-semibold hover:from-blue-500 hover:to-indigo-500 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-blue-300/50 flex items-center gap-2"
+                  >
+                     Chơi lại
+                  </button>
+                  <button
+                    onClick={handleShowAllAnswers}
+                    disabled={showAllAnswers}
+                    className="px-4 py-2 cursor-pointer bg-gradient-to-r from-indigo-400 to-purple-400 text-white rounded-xl font-semibold hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-indigo-300/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center gap-2"
+                  >
+                     Hiện tất cả
+                  </button>
                 </div>
+              </div>
+               
                 <div className="overflow-x-auto">
                   <CrosswordGame
                     data={data}
@@ -169,12 +169,10 @@ const HomePage = () => {
                     showAllAnswers={showAllAnswers}
                   />
                 </div>
-              </div>
             </div>
 
             {/* Right Sidebar */}
-            <div className="lg:w-[380px] shrink-0 space-y-6">
-              {/* Question Display */}
+            <div className="lg:w-[400px] shrink-0">
               <QuestionDisplay
                 question={currentQuestion}
                 rowIndex={selectedRow}
@@ -184,65 +182,12 @@ const HomePage = () => {
                   (revealedAnswers.includes(selectedRow) || showAllAnswers)
                 }
               />
-
-              {/* Stats Card */}
-              <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-6 border border-white/20">
-                <h3 className="font-bold text-xl text-slate-800 mb-4 flex items-center gap-2">
-                  📊 Thống Kê
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center p-3 bg-slate-50 rounded-xl">
-                    <span className="text-slate-600 font-medium">Tổng câu hỏi</span>
-                    <span className="font-bold text-2xl text-emerald-600">
-                      {data.questions.length}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center p-3 bg-emerald-50 rounded-xl">
-                    <span className="text-slate-600 font-medium">Đã trả lời</span>
-                    <span className="font-bold text-2xl text-emerald-600">
-                      {revealedAnswers.length}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center p-3 bg-amber-50 rounded-xl">
-                    <span className="text-slate-600 font-medium">Còn lại</span>
-                    <span className="font-bold text-2xl text-amber-600">
-                      {data.questions.length - revealedAnswers.length}
-                    </span>
-                  </div>
-                  
-                  {/* Progress bar */}
-                  <div className="pt-2">
-                    <div className="flex justify-between text-sm text-slate-500 mb-2">
-                      <span>Tiến độ</span>
-                      <span className="font-semibold">
-                        {data.questions.length > 0 
-                          ? Math.round((revealedAnswers.length / data.questions.length) * 100) 
-                          : 0}%
-                      </span>
-                    </div>
-                    <div className="h-4 bg-slate-100 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-emerald-400 to-teal-500 transition-all duration-700 ease-out rounded-full"
-                        style={{
-                          width: `${data.questions.length > 0 
-                            ? (revealedAnswers.length / data.questions.length) * 100 
-                            : 0}%`,
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
-        ) : (
-          <QuestionManager data={data} onUpdateData={handleUpdateData} />
-        )}
-      </div>
-
-      {/* Trophy decoration */}
-      <div className="fixed bottom-6 right-6 opacity-20 pointer-events-none">
-        <div className="text-8xl">🏆</div>
+          ) : (
+            <QuestionManager data={data} onUpdateData={handleUpdateData} />
+          )}
+        </div>
       </div>
     </div>
   );
